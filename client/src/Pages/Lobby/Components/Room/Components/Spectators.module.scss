@@ -1,0 +1,17 @@
+.spectators {
+    flex-grow: 1;
+    max-width: 200px;
+    background-color: #ce424263;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px !important;
+
+    .row {
+        line-height: 18px;
+        font-size: 22px;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

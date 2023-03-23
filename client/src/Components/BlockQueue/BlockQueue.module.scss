@@ -1,0 +1,49 @@
+$second-color: #ce42421c;
+$main-color: #ce4242;
+
+$p2-second-color: rgba(245, 133, 226, 0.11);
+$p2-main-color: #c234c2;
+
+.queue {
+    border: 2px solid $main-color;
+    background-color: $second-color;
+    box-sizing: border-box;
+    top: 80px;
+    position: absolute;
+    height: 440px;
+    width: 260px;
+    padding: 20px;
+    border-radius: 5px;
+
+    &.right {
+        left: calc(50vw + 470px);
+        border-left: none;
+    }
+
+    &.left {
+        right: calc(50vw + 470px);
+        border-right: none;
+    }
+
+
+    &.center {
+        left: calc(50vw - 470px);
+        border-right: none;
+    }
+
+    &.dummy {
+        border-color: $p2-main-color;
+        background-color: $p2-second-color;
+    }
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 32px;
+}
+
+.canvas {
+    display: flex;
+    margin: auto;
+}

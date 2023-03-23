@@ -1,0 +1,56 @@
+$second-color: #ce42421c;
+$main-color: #ce4242;
+
+$p2-second-color: rgba(245, 133, 226, 0.11);
+$p2-main-color: #c234c2;
+
+.info {
+    border: 2px solid $main-color;
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 24px;
+    bottom: 0px;
+    width: 260px;
+    padding: 20px;
+    border-radius: 5px;
+
+    background-color: $second-color;
+
+    &.right {
+        left: calc(50vw + 470px);
+        border-left: none;
+    }
+
+    &.left {
+        right: calc(50vw + 470px);
+        border-right: none;
+
+    }
+
+    &.center {
+        right: calc(50vw + 210px);
+        border-right: none;
+    }
+    
+    &.dummy {
+        border-color: $p2-main-color;
+        background-color: $p2-second-color;
+
+    }
+
+
+
+    &Item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        &.name {
+            justify-content: center;
+            text-decoration: underline;
+        }
+    }
+}
