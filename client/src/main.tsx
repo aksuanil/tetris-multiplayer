@@ -9,8 +9,8 @@ import * as io from 'socket.io-client';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App />);
 
-const socket = io.connect('http://localhost:8080');
-// const socket = io.connect('http://tetrify-env.eba-prqhjxez.eu-central-1.elasticbeanstalk.com');
+// const socket = io.connect('http://localhost:8080');
+const socket = io.connect('http://tetrify-env.eba-prqhjxez.eu-central-1.elasticbeanstalk.com');
 
 function Main(): JSX.Element {
   return (
