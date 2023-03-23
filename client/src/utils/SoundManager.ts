@@ -20,7 +20,7 @@ export class SoundManager {
 
     private static masterVolume = 0.5;
     private static sfxVolume = 0.5;
-    private static musicVolume = 0.0;
+    private static musicVolume = 0.2;
 
     private constructor() {
         this.audioMap = new Map();
