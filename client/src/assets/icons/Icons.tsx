@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { HEX } from '../../Pages/Game/types';
+import { HEX } from '../../types';
 
 type IconProps = {
   height?: number;

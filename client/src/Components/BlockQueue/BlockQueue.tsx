@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Block } from '../../Pages/Game/types';
 import styles from './BlockQueue.module.scss';
 import { gameSettings } from '../../gameSettings';
 import { GameRenderer } from '../../utils/GameRenderer';
+import { Block } from '../../types';
 
 type Props = {
   blockQueue: Block[];

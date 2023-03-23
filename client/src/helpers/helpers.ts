@@ -1,5 +1,5 @@
 import { ZodIssue } from "zod"
-import { HEX } from "../Pages/Game/types"
+import { HEX } from "../types"
 
 export const getError = (name: string, errors: Array<ZodIssue>) => {
     const error = errors.find(error => error.path[0] === name)
