@@ -77,7 +77,7 @@ export default function Home({ socket }: Props) {
 
   return (
     <React.Fragment>
-      {sessionStorage.getItem('infoPopup') === '0' && <InfoPopup />}
+      {!sessionStorage.getItem('infoPopup') && <InfoPopup />}
       <div className={styles.wrapper}>
         <div
           ref={soloRef}

@@ -12,6 +12,8 @@ export default function Back() {
       event.preventDefault();
       event.returnValue = '';
     };
+    window.addEventListener('beforeunload', () => sessionStorage.removeItem('infoPopup'));
+
     if (location.pathname != '/') {
       window.addEventListener('beforeunload', handleBeforeUnload);
     }
