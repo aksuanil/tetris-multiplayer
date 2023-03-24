@@ -8,8 +8,8 @@
     "start": "node server.js",
     "start-prod": "node dist/server.js",
     "dev": "nodemon server.ts",
-    "build": "npx tsc",
-    "build-local": "npx tsc --outDir dist"
+    "build": "npx typescript",
+    "build-local": "npx typescript --outDir dist"
   },
   "author": "",
   "license": "ISC",
