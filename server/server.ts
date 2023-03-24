@@ -33,19 +33,8 @@ declare module 'socket.io' {
     }
 }
 
-io.on("connection", (socket: Socket) => {
-    socket.use((packet, next) => {
-        console.log(packet);
-    })
-});
-
-
 const onConnection = (socket: Socket) => {
     console.log(`${socket.id} connected!`);
-    socket.use((packet, next) => {
-        console.log(packet);
-    })
-
     socket.on('joinRoom', (roomId: string, username: string = 'Guest', callback: Function) => {
         socket.join(roomId);
         socket.roomId = roomId
