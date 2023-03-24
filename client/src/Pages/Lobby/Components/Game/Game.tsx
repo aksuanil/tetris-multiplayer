@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Socket } from 'socket.io-client';
 import Board from './Components/Board';
 import { PlayerData, RoomData } from '../../types';
 import DummyBoard from './Components/DummyBoard';
 import styles from './Game.module.scss';
-import GameOverPopup from '../../../../Components/GameOverPopup/GameOverPopup';
 
 type GameProps = {
   socket: Socket;

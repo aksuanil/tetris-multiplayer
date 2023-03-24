@@ -10,7 +10,22 @@
     align-items: center;
     text-align: center;
     z-index: 2;
+
+    .close-button {
+        position: absolute;
+        right: 10px;
+        top: 0px;
+        cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0, pointer;
+
+        &:hover {
+            svg {
+                fill: rgb(199, 55, 55);
+                stroke: rgb(199, 55, 55);
+            }
+        }
+    }
 }
+
 
 .popup {
     background-color: #303030;
@@ -18,11 +33,30 @@
     border-radius: 10px;
     box-shadow: 0 0 30px white;
 
+    .leavePopup {
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-top: 30px;
+        >p {
+            font-size: 28px;
+            width: 400px;
+        }
+
+        >button {
+            margin-top: 20px;
+            width: 140px;
+        }
+    }
+
     >form {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        >button{
+
+        >button {
             margin-top: 15px;
         }
     }

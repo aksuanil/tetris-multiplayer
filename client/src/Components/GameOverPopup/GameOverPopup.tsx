@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BackArrow, Repeat } from '../../assets/icons/Icons';
+import { Context } from '../../store/context';
 import { Button } from '../Button';
 import Container from '../Container/Container';
 import styles from './GameOverPopup.module.scss';
@@ -15,6 +16,8 @@ export default function GameOverPopup({ score, resetGame, isWinner }: Props) {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const { setLeavePopup } = useContext(Context);
+
   return (
     <div className={styles.popupContainer}>
       <Container color="#CE4242" className={styles.popup}>
@@ -26,14 +29,28 @@ export default function GameOverPopup({ score, resetGame, isWinner }: Props) {
           <span>{score}</span>
         </div>
         <div className={styles.btnGroup}>
-          <Button type="button" buttonType="themeRed" onClick={() => navigate('/')}>
+          <Button
+            type="button"
+            buttonType="themeRed"
+            onClick={() => {
+              navigate('/');
+              setLeavePopup(false);
+            }}
+          >
             <div className={styles.btnElem}>
               <BackArrow color="#303030" width={36} height={36} />
               <span>Return to {location.pathname.includes('lobby') ? 'Lobby' : 'Menu'}</span>
             </div>
           </Button>
           {location.pathname.includes('solo') && (
-            <Button type="button" buttonType="themeRed" onClick={resetGame}>
+            <Button
+              type="button"
+              buttonType="themeRed"
+              onClick={() => {
+                resetGame && resetGame();
+                setLeavePopup(false);
+              }}
+            >
               <div className={styles.btnElem}>
                 <Repeat color="#303030" width={32} height={32} />
                 <span>Play Again</span>

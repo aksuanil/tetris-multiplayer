@@ -8,7 +8,7 @@ import BlockQueue from '../../../../../Components/BlockQueue/BlockQueue';
 import Scoreboard from '../../../../../Components/Scoreboard/Scoreboard';
 import { MultiTetris } from '../../../../../utils/MultiTetris';
 import GameOverPopup from '../../../../../Components/GameOverPopup/GameOverPopup';
-import { PlayerStatus, SeatStatus } from '../../../enums';
+import { SeatStatus } from '../../../enums';
 import { SoundManager } from '../../../../../utils/SoundManager';
 
 type Props = {

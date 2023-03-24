@@ -6,6 +6,7 @@ import Lobby from './Pages/Lobby/Lobby';
 import Solo from './Pages/Solo/Solo';
 import { Layout } from './Layout/Layout';
 import * as io from 'socket.io-client';
+import { ContextProvider } from './store/Provider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App />);
 
@@ -24,10 +25,12 @@ function Main(): JSX.Element {
 
 function App(): JSX.Element {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<Layout Component={Main}></Layout>} />;
-      </Routes>
-    </BrowserRouter>
+    <ContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<Layout Component={Main}></Layout>} />;
+        </Routes>
+      </BrowserRouter>
+    </ContextProvider>
   );
 }

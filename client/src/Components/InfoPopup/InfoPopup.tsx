@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Play } from '../../assets/icons/Icons';
+import { Context } from '../../store/context';
 import { SoundManager } from '../../utils/SoundManager';
 import { Button } from '../Button';
 import Container from '../Container/Container';
-import { Input } from '../Input';
 import styles from './InfoPopup.module.scss';
 
 export default function InfoPopup() {
   const [hidden, setHidden] = useState(false);
+  const { setInfoPopup } = useContext(Context);
 
   return (
     <div hidden={hidden} className={styles.popupContainer}>
@@ -23,7 +24,7 @@ export default function InfoPopup() {
           buttonType="themeRed"
           onClick={() => {
             SoundManager.getInstance().playSound('theme');
-            sessionStorage.setItem('infoPopup', '1');
+            setInfoPopup(false);
             setHidden(true);
           }}
         >

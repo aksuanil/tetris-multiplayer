@@ -7,7 +7,6 @@ import { getError } from '../../helpers/helpers';
 import { createFormSchema, joinFormSchema, soloFormSchema } from '../../helpers/zodScemas';
 import styles from './Home.module.scss';
 import { Socket } from 'socket.io-client';
-import InfoPopup from '../../Components/InfoPopup/InfoPopup';
 import multiIcon from '../../assets/icons/multiIcon.png';
 import soloIcon from '../../assets/icons/soloIcon.png';
 import { SoundManager } from '../../utils/SoundManager';
@@ -77,7 +76,6 @@ export default function Home({ socket }: Props) {
 
   return (
     <React.Fragment>
-      {!sessionStorage.getItem('infoPopup') && <InfoPopup />}
       <div className={styles.wrapper}>
         <div
           ref={soloRef}

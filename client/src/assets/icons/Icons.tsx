@@ -629,3 +629,36 @@ export const Gear = ({ height = 24, width = 24, color = '#000000' }: IconProps):
     </g>
   </svg>
 );
+export const Close = ({ height = 24, width = 24, color = '#000000' }: IconProps): ReactElement<any, any> => (
+  <svg fill={color} width={width} height={height} xmlns="http://www.w3.org/2000/svg" stroke={color} viewBox="0.55 5.5 16.93 5.98">
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0.272"></g>
+    <g id="SVGRepo_iconCarrier">
+      <title>1177</title> <defs> </defs>
+      <g strokeWidth="0.28900000000000003" fillRule="evenodd">
+        <g transform="translate(1.000000, 6.000000)">
+          <path
+            d="M1.053,4.938 L1.053,4.032 L1.948,4.032 L1.948,4.938 L1.053,4.938 L1.053,4.938 Z M0.048,3.932 L0.048,1.037 L0.953,1.037 L0.953,3.932 L0.048,3.932 L0.048,3.932 Z M1.053,0.938 L1.053,0.032 L1.948,0.032 L1.948,0.938 L1.053,0.938 L1.053,0.938 Z"
+            className="si-glyph-fill"
+          ></path>
+          <path
+            d="M7.021,4.979 L7.021,4 L8,4 L8,4.979 L7.021,4.979 L7.021,4.979 Z M8.037,3.941 L8.037,1.037 L8.942,1.037 L8.942,3.941 L8.037,3.941 L8.037,3.941 Z M6.059,3.941 L6.059,1.037 L6.932,1.037 L6.932,3.941 L6.059,3.941 L6.059,3.941 Z M7,0.973 L7,0.001 L7.951,0.001 L7.951,0.973 L7,0.973 L7,0.973 Z"
+            className="si-glyph-fill"
+          ></path>
+          <path
+            d="M3.059,4.931 L3.059,0.059 L3.942,0.059 L3.942,4.048 L4.973,4.048 L4.973,4.932 L3.059,4.931 Z"
+            className="si-glyph-fill"
+          ></path>
+          <path
+            d="M14.058,4.947 L14.058,0.042 L15.958,0.042 L15.958,0.947 L14.918,0.947 L14.918,2.1 L15.979,2.1 L15.979,2.947 L14.94,2.947 L14.94,4.053 L15.958,4.053 L15.958,4.947 L14.058,4.947 Z"
+            className="si-glyph-fill"
+          ></path>
+          <path
+            d="M10.079,4.916 L10.079,4.084 L11.942,4.084 L11.942,4.916 L10.079,4.916 L10.079,4.916 Z M12.007,3.947 L12.007,3.026 L12.943,3.026 L12.943,3.947 L12.007,3.947 L12.007,3.947 Z M11.031,2.964 L11.031,2.021 L11.963,2.021 L11.963,2.964 L11.031,2.964 L11.031,2.964 Z M10.037,1.958 L10.037,1.026 L10.963,1.026 L10.963,1.958 L10.037,1.958 L10.037,1.958 Z M11.079,0.916 L11.079,0.068 L12.942,0.068 L12.942,0.916 L11.079,0.916 L11.079,0.916 Z"
+            className="si-glyph-fill"
+          ></path>
+        </g>
+      </g>
+    </g>
+  </svg>
+);
