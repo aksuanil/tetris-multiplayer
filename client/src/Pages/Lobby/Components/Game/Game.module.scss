@@ -4,4 +4,8 @@
     align-items: center;
     position: relative;
     gap: 100px;
+
+    @media (max-height: 900px) {
+        gap: 60px;
+    }
 }

@@ -3,8 +3,8 @@ import { ColorSettings, HEX } from "./types"
 
 export const gameSettings = {
     canvasSize: {
-        width: 400,
-        height: 880 // 600
+        width: window.innerHeight < 901 ? 300 : 400,
+        height: window.innerHeight < 901 ? 660 : 880
     },
     boardSize: {
         x: 10,
@@ -92,7 +92,7 @@ export const createPattern = (canvasContext: CanvasRenderingContext2D, color: HE
     startY = patternCanvas.width / 2;
 
     patternContext.translate(startX, startY);
-    patternContext.rotate(270 * Math.PI / 180); // Convert degrees to radians
+    patternContext.rotate(270 * Math.PI / 180);
 
     patternContext.beginPath();
     patternContext.moveTo(startX, startY);
@@ -108,7 +108,7 @@ export const createPattern = (canvasContext: CanvasRenderingContext2D, color: HE
     startX = -patternCanvas.width;
 
     patternContext.translate(startX, startY);
-    patternContext.rotate(270 * Math.PI / 180); // Convert degrees to radians
+    patternContext.rotate(270 * Math.PI / 180);
 
     patternContext.beginPath();
     patternContext.moveTo(startX, startY);
@@ -125,7 +125,7 @@ export const createPattern = (canvasContext: CanvasRenderingContext2D, color: HE
     bottomWidth = patternCanvas.width;
     startX = patternCanvas.width / 2 + height;
     startY = patternCanvas.width - height;
-    patternContext.rotate(90 * Math.PI / 180); // Convert degrees to radians
+    patternContext.rotate(90 * Math.PI / 180);
 
     patternContext.beginPath();
     patternContext.moveTo(startX, startY);

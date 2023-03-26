@@ -21,7 +21,7 @@ export default function BlockQueue({ blockQueue, position, type }: Props) {
         for (let y = 0; y < block.matrix[x].length; y++) {
           if (block.matrix[x][y] > 0) {
             canvasContext.fillStyle = GameRenderer.colorsPattern[block.matrix[x][y]];
-            canvasContext.fillRect(y * BLOCK_SIZE + 40, x * BLOCK_SIZE + index * 120, BLOCK_SIZE, BLOCK_SIZE);
+            canvasContext.fillRect(y * BLOCK_SIZE + BLOCK_SIZE, x * BLOCK_SIZE + index * BLOCK_SIZE * 3, BLOCK_SIZE, BLOCK_SIZE);
           }
         }
       }

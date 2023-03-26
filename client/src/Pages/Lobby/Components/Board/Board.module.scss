@@ -8,6 +8,11 @@
     border-left-width: 10px;
     border-top-width: 10px;
 
+    @media (max-height: 900px) {
+        box-shadow: inset 0px -600px 0px 0px rgba(206, 66, 66, 0.1098039216);
+        margin-top: 40px;
+    }
+
     &:focus {
         outline: none;
     }
