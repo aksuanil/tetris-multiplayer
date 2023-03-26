@@ -73,17 +73,15 @@ export default function Lobby({ socket }: Props): JSX.Element {
 
   return (
     <React.Fragment>
-      <div className={styles.lobbyWrapper}>
-        {(roomData.status === RoomStatus.WAITING || roomData.status === RoomStatus.READY) && (
-          <Room socket={socket} roomData={roomData} playerData={playerData} setPlayerData={setPlayerData} />
-        )}
-        {roomData.status === RoomStatus.INTERMISSION && (
-          <Intermission username1={roomData.seatOne.username} username2={roomData.seatTwo.username} />
-        )}
-        {(roomData.status === RoomStatus.PLAYING || roomData.status === RoomStatus.FINISHED) && (
-          <Game socket={socket} roomData={roomData} playerData={playerData} />
-        )}
-      </div>
+      {(roomData.status === RoomStatus.WAITING || roomData.status === RoomStatus.READY) && (
+        <Room socket={socket} roomData={roomData} playerData={playerData} setPlayerData={setPlayerData} />
+      )}
+      {roomData.status === RoomStatus.INTERMISSION && (
+        <Intermission username1={roomData.seatOne.username} username2={roomData.seatTwo.username} />
+      )}
+      {(roomData.status === RoomStatus.PLAYING || roomData.status === RoomStatus.FINISHED) && (
+        <Game socket={socket} roomData={roomData} playerData={playerData} />
+      )}
     </React.Fragment>
   );
 }

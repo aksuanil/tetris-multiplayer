@@ -4,9 +4,9 @@ import { Close } from '../../assets/icons/Icons';
 import { Context } from '../../store/context';
 import { Button } from '../Button';
 import Container from '../Container/Container';
-import styles from '../HotJoinPopup/HotJoinPopup.module.scss';
+import styles from './HotJoinPopup.module.scss';
 
-export default function LeaveDialog() {
+export default function LeavePopup() {
   const navigate = useNavigate();
   const { setLeavePopup } = useContext(Context);
 

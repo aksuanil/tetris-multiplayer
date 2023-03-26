@@ -13,7 +13,7 @@ type GameProps = {
 
 export default function Game({ socket, roomData, playerData }: GameProps) {
   return (
-    <div className={styles.game + ' ' + styles.gameMulti}>
+    <div className={styles.game}>
       <React.Fragment>
         {playerData.seatId === 0 ? (
           <Board socket={socket} roomData={roomData} playerData={playerData} />

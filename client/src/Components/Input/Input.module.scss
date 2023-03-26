@@ -2,7 +2,6 @@ $multi-color: #2E3840;
 $multi-second-color: #ce424275;
 $multi-main-color: #ce4242;
 
-
 .nes-input {
     border-image-slice: 2;
     border-image-width: 2;
@@ -38,7 +37,6 @@ $multi-main-color: #ce4242;
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    // gap: 8px;
     flex: 1;
 
     &.themeRed {

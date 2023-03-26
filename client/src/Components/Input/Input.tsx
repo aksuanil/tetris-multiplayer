@@ -10,7 +10,7 @@ type InputProps = {
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { inputType = 'solo', name, error, label, onChange } = props;
+  const { inputType = 'themeRed', name, error, label, onChange } = props;
   Input.displayName = 'Input';
 
   return (

@@ -16,7 +16,7 @@ export default function InfoPopup() {
         <div>
           <h1>Welcome to TetraCore</h1>
           <p>TetraCore is a multiplayer tetris game where you can battle or co-op with your friends.</p>
-          <p>Keep in mind this is an alpha version and feel free to report feedbacks. </p>
+          <p>Feel free to share your feedback. </p>
           <p>Enjoy !</p>
         </div>
         <Button

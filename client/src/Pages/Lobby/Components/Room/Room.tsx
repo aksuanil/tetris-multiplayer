@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Socket } from 'socket.io-client';
 import { Check, Copy, Uncheck } from '../../../../assets/icons/Icons';
 import Button from '../../../../Components/Button/Button';
-import HotJoinPopup from '../../../../Components/HotJoinPopup/HotJoinPopup';
+import HotJoinPopup from '../../../../Components/Popups/HotJoinPopup';
 import { PlayerStatus, SeatStatus } from '../../enums';
 import { Messages, PlayerData, RoomData } from '../../types';
 import styles from './Room.module.scss';

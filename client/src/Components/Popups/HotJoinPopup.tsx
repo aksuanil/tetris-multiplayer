@@ -28,9 +28,9 @@ export default function HotJoinPopup({ nameCallback }: Props) {
 
   return (
     <div className={styles.popupContainer}>
-      <Container className={styles.popup}>
+      <Container className={styles.popup} color="#CE4242">
         <form onSubmit={handleSubmit}>
-          Username:
+          <label>Username</label>
           <Input name="username-popup-input" inputType="themeRed" ref={inputRef} />
           {error && <span>Username is Required</span>}
           <Button type="submit" buttonType="themeRed">

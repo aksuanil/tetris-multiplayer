@@ -5,7 +5,7 @@ import BlockQueue from '../../Components/BlockQueue/BlockQueue';
 import styles from './Solo.module.scss';
 import { Socket } from 'socket.io-client';
 import { useLocation } from 'react-router-dom';
-import HotJoinPopup from '../../Components/HotJoinPopup/HotJoinPopup';
+import HotJoinPopup from '../../Components/Popups/HotJoinPopup';
 import GameOverPopup from '../../Components/GameOverPopup/GameOverPopup';
 import { SoloTetris } from '../../utils/SoloTetris';
 

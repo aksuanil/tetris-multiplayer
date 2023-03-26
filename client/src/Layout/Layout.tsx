@@ -3,9 +3,9 @@ import styles from './Layout.module.scss';
 import Logo from './Components/Logo';
 import Settings from './Components/Settings';
 import Back from './Components/Back';
-import LeaveDialog from '../Components/LeaveDialog/LeaveDialog';
 import { Context } from '../store/context';
-import InfoPopup from '../Components/InfoPopup/InfoPopup';
+import InfoPopup from '../Components/Popups/InfoPopup';
+import LeavePopup from '../Components/Popups/LeavePopup';
 
 type Props = {
   Component: () => JSX.Element;
@@ -26,7 +26,7 @@ export function Layout({ Component }: Props): JSX.Element {
       <Logo />
       <Back />
       {infoPopup && <InfoPopup />}
-      {leavePopup && <LeaveDialog />}
+      {leavePopup && <LeavePopup />}
       <Settings />
       <Component />
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gear, SoundGear } from '../../assets/icons/Icons';
+import { SoundGear } from '../../assets/icons/Icons';
 import Container from '../../Components/Container/Container';
 import Slider from '../../Components/Slider/Slider';
 import { SoundManager } from '../../utils/SoundManager';

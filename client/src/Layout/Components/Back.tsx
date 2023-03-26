@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { BackArrow } from '../../assets/icons/Icons';
 import { Context } from '../../store/context';
 import styles from './Back.module.scss';
