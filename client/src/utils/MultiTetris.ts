@@ -68,7 +68,7 @@ export class MultiTetris {
             this.moveCurrentBlock('DOWN')
         }, gameSettings.dropTick);
     }
-    public moveCurrentBlock(direction: string, isDrop?: boolean): any {
+    public moveCurrentBlock(direction: string): any {
         if (this.isGameOver) return
         if (direction == 'LEFT' && this.pieceX === 0) return;
         if (direction == 'RIGHT' && this.pieceX === 10 - this.currentBlock.matrix[0].length) return;
@@ -119,7 +119,7 @@ export class MultiTetris {
                     this.render.renderBoard(this.matrix)
                 }, gameSettings.dropTick);
             }
-            !isDrop && SoundManager.getInstance().playSound('move');
+            SoundManager.getInstance().playSound('move');
             this.setBoardMatrix();
             this.render.renderBoard(this.matrix)
         }
@@ -137,16 +137,20 @@ export class MultiTetris {
             }
 
             this.createPiece();
+            SoundManager.getInstance().playSound('drop')
             this.clearLines();
             return 'DROPPED'
         }
     }
     public dropBlock() {
-        let result = null;
-        while (result !== "DROPPED") {
-            result = this.moveCurrentBlock('DOWN', true);
-        }
-        SoundManager.getInstance().playSound('drop')
+        let result: any;
+        const intervalId = setInterval(() => {
+            if (result === "DROPPED") {
+                clearInterval(intervalId);
+            } else {
+                result = this.moveCurrentBlock('DOWN');
+            }
+        }, 10);
     }
     public rotateCurrentBlock(): Block {
         let collision = false;
@@ -176,8 +180,8 @@ export class MultiTetris {
         }
         if (!collision) {
             this.currentBlock.matrix = rotatedPiece;
-            this.moveCurrentBlock('ROTATE')
         }
+        this.moveCurrentBlock('ROTATE')
         return this.currentBlock;
     }
     public createPiece = () => {

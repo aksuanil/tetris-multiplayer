@@ -5,7 +5,7 @@ export const joinFormSchema = z.object({
         value: z.string().min(1, { message: "Username name is required" }).max(16, { message: "Must be 16 or fewer characters long" }),
     }),
     lobbyName: z.object({
-        value: z.string().min(1, { message: "Lobby name is required" }).length(6, { message: "Must be 6 characters long" }),
+        value: z.string().min(1, { message: "Lobby ID is required" }).length(6, { message: "Must be 6 characters long" }),
     })
 });
 

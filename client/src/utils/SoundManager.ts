@@ -1,20 +1,18 @@
 import hoverSfx from '../assets/sounds/hover_1.mp3';
 import clickSfx from '../assets/sounds/click_1.mp3';
 import errorSfx from '../assets/sounds/error_1.mp3';
-import BladeRunnertheme from '../assets/sounds/theme_1.mp3';
-import moveSfx from '../assets/sounds/move_1.mp3';
+import theme_1 from '../assets/sounds/theme_1.mp3';
+import theme_2 from '../assets/sounds/theme_2.mp3';
+import theme_3 from '../assets/sounds/theme_3.mp3';
 import lineClearSfx from '../assets/sounds/line_clear.mp3';
 import tetrisClearSfx from '../assets/sounds/tetris_clear.mp3';
 import gameLoseSfx from '../assets/sounds/game_lose.mp3'
 import gameStartSfx from '../assets/sounds/game_start.mp3'
 import messageSfx from '../assets/sounds/message.mp3'
 import joinSfx from '../assets/sounds/join_room.mp3'
-import sliderSfx from '../assets/sounds/slider.mp3'
-import drop2Sfx from '../assets/sounds/drop2.wav'
-import move2Sfx from '../assets/sounds/move2.mp3'
+import move2Sfx from '../assets/sounds/move_2.mp3'
 import drop3Sfx from '../assets/sounds/move3.mp3'
 import slider2Sfx from '../assets/sounds/slider2.mp3'
-import drop5Sfx from '../assets/sounds/drop3.mp3'
 
 export class SoundManager {
     private static instance: SoundManager;
@@ -23,19 +21,19 @@ export class SoundManager {
     private themes: string[];
     private themeIndex: number;
 
-    private static masterVolume = 0;
-    private static sfxVolume = 1;
-    private static musicVolume = 0.0;
+    private static masterVolume = 0.5;
+    private static sfxVolume = 0.5;
+    private static musicVolume = 0.5;
 
     private constructor() {
         this.audioMap = new Map();
 
-        this.themes = [BladeRunnertheme];
+        this.themes = [theme_1, theme_2, theme_3];
         this.themeIndex = 0;
         this.initializeAudio('hover', hoverSfx);
         this.initializeAudio('click', clickSfx);
         this.initializeAudio('error', errorSfx);
-        this.initializeAudio('move', slider2Sfx);
+        this.initializeAudio('move', move2Sfx); //
         this.initializeAudio('drop', drop3Sfx);
         this.initializeAudio('lineClear', lineClearSfx);
         this.initializeAudio('tetrisClear', tetrisClearSfx);
@@ -45,6 +43,7 @@ export class SoundManager {
         this.initializeAudio('message', messageSfx);
         this.initializeAudio('join', joinSfx);
         this.initializeAudio('slider', slider2Sfx);
+        this.initializeAudio('rotate', move2Sfx); //
         this.initializeAudio('theme', this.themes[this.themeIndex]);
     }
 
