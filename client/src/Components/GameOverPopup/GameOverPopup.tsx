@@ -25,7 +25,7 @@ export default function GameOverPopup({ score, resetGame, isWinner }: Props) {
           <h1>Game Over</h1>
           {isWinner === true && <p className={styles.won}>You have won !</p>}
           {isWinner === false && <p className={styles.lost}>You have lost !</p>}
-          <p>Your score is </p>
+          <p>Score</p>
           <span>{score}</span>
         </div>
         <div className={styles.btnGroup}>

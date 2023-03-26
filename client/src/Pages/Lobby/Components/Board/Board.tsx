@@ -53,6 +53,11 @@ export default function Board({ socket, roomData, playerData }: Props) {
     };
   }, []);
 
+  useEffect(() => {
+    if (roomData.seatOne.status === SeatStatus.EMPTY || roomData.seatTwo.status === SeatStatus.EMPTY)
+      socket.emit('room-data', 'game-over', { roomId: roomData.id, seatId: playerData.seatId });
+  }, [roomData.seatTwo.status, roomData.seatOne.status]);
+
   const handleKeydown = (e: React.KeyboardEvent<HTMLCanvasElement> | { key: string }) => {
     if (!board || board.isGameOver) return;
     switch (e.key.toLowerCase()) {

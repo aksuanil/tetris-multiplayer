@@ -4,7 +4,7 @@ import errorSfx from '../assets/sounds/error_1.mp3';
 import theme_1 from '../assets/sounds/theme_1.mp3';
 import theme_2 from '../assets/sounds/theme_2.mp3';
 import theme_3 from '../assets/sounds/theme_3.mp3';
-import lineClearSfx from '../assets/sounds/line_clear.mp3';
+import lineClearSfx from '../assets/sounds/clear_1.mp3';
 import tetrisClearSfx from '../assets/sounds/tetris_clear.mp3';
 import gameLoseSfx from '../assets/sounds/game_lose.mp3'
 import gameStartSfx from '../assets/sounds/game_start.mp3'

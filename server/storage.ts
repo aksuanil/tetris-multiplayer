@@ -27,8 +27,7 @@ export const storage: Storage = {
 };
 
 export const highscores: Highscores = [
-    { id: '', username: 'TetrisKing', score: 1700 },
-    { id: '', username: 'BestTetrisPlayer', score: 1400 },
-    { id: '', username: 'TetrisManiac', score: 1100 },
-    { id: '', username: 'TetrisTest', score: 800 },
+    { id: '', username: 'Test_User', score: 1700 },
+    { id: '', username: 'Test_User_2', score: 1400 },
+    { id: '', username: 'Test_User_3', score: 1100 },
 ]

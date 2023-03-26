@@ -78,13 +78,20 @@ $board-hover-color: lighten(#415f56, 3%);
         margin-right: 45px;
         image-rendering: pixelated;
     }
+
     .title {
         width: fit-content;
         margin: auto;
         margin-bottom: 10px;
 
         font-size: 32px;
-        letter-spacing: 5px;
+        letter-spacing: 3px;
+
+        @media (max-height: 900px) {
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
         color: $multi-main-color;
 
         border-bottom: 1px solid #ce4242b2;
@@ -98,6 +105,9 @@ $board-hover-color: lighten(#415f56, 3%);
     .desc {
         font-size: 24px;
         color: $multi-main-color;
+        @media (max-height: 900px) {
+            font-size: 20px;
+        }
     }
 
     .titleBoard {
@@ -131,6 +141,7 @@ $board-hover-color: lighten(#415f56, 3%);
     color: $board-main-color;
     font-size: 32px;
     align-self: flex-start;
+
     th {
         text-decoration: underline;
         transform: skewX(15deg);

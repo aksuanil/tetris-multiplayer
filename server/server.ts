@@ -23,7 +23,7 @@ app.use(require('express-status-monitor')({
 }));
 
 app.get('/', (req, res) => {
-    res.send('Welcome to Tetrify.')
+    res.send('Welcome to TetriCore.')
 })
 
 declare module 'socket.io' {

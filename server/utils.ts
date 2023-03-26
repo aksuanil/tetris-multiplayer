@@ -109,12 +109,15 @@ export const leaveOrDisconnect = (data: Storage, roomId: string, isPopulated: bo
         if (seatOne.id === currentId) {
             data[roomId].seatOne.id = '';
             data[roomId].seatOne.username = '';
-            data[roomId].seatOne.status = 0;
+            data[roomId].seatOne.status = SeatStatus.EMPTY;
         }
         if (seatTwo.id === currentId) {
             data[roomId].seatTwo.id = '';
             data[roomId].seatTwo.username = '';
-            data[roomId].seatTwo.status = 0;
+            data[roomId].seatTwo.status = SeatStatus.EMPTY;
+            // if(data[roomId].status === RoomStatus.PLAYING) {
+            //     socket
+            // }
         }
         data[roomId].spectators = spectators.filter((item) => item !== currentId)
     } catch (error) {
@@ -148,7 +151,6 @@ export const disconnect = (socket: Socket, io: Server, data: Storage) => {
 export const leaveRoom = (socket: Socket, io: Server, data: Storage, roomId: string) => {
     socket.leave(roomId);
     console.log(`${socket.id} has left room ${roomId}!`);
-
     leaveOrDisconnect(data, roomId, !!io.sockets.adapter.rooms.get(roomId)?.size, socket.id)
     io.to(roomId).emit('getRoomData', data[roomId])
 }

@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
     .canvas {
         clip-path: polygon(0 9%, 100% 9%, 100% 100%, 0 100%);
         box-shadow: inset 0px -800px 0px 0px rgba(206, 66, 66, 0.1098039216);
@@ -15,6 +16,7 @@
 
         @media (max-height: 900px) {
             box-shadow: inset 0px -600px 0px 0px rgba(206, 66, 66, 0.1098039216);
+            margin-top: 40px;
         }
 
         &:focus {
