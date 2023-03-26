@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useEffect, useRef } from 'react';
-import { gameSettings } from '../../../../../gameSettings';
 import { Socket } from 'socket.io-client';
-import { PlayerData, RoomData } from '../../../types';
+import BlockQueue from '../../../../Components/BlockQueue/BlockQueue';
+import Scoreboard from '../../../../Components/Scoreboard/Scoreboard';
+import { gameSettings } from '../../../../gameSettings';
+import { GameRenderer } from '../../../../utils/GameRenderer';
+import { RoomData, PlayerData } from '../../types';
 import styles from './DummyBoard.module.scss';
-import BlockQueue from '../../../../../Components/BlockQueue/BlockQueue';
-import Scoreboard from '../../../../../Components/Scoreboard/Scoreboard';
-import { GameRenderer } from '../../../../../utils/GameRenderer';
 
 type Props = {
   socket: Socket;

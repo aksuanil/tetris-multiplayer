@@ -39,7 +39,7 @@ export default function Home({ socket }: Props) {
       return;
     }
     if (e.target.lobbyName) navigate(`/lobby/${e.target.lobbyName.value.toUpperCase()}`, { state: { username: e.target.joinName.value } });
-    else navigate(`/lobby/${Math.random().toString(16).slice(6).toUpperCase()}`, { state: { username: e.target.createName.value } });
+    else navigate(`/lobby/${Math.random().toString(16).slice(9).toUpperCase()}`, { state: { username: e.target.createName.value } });
   };
 
   const soloRef = useRef<HTMLDivElement>(null);

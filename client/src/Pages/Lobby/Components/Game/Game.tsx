@@ -1,8 +1,8 @@
 import React from 'react';
 import { Socket } from 'socket.io-client';
-import Board from './Components/Board';
 import { PlayerData, RoomData } from '../../types';
-import DummyBoard from './Components/DummyBoard';
+import Board from '../Board/Board';
+import DummyBoard from '../DummyBoard/DummyBoard';
 import styles from './Game.module.scss';
 
 type GameProps = {

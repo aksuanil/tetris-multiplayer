@@ -5,9 +5,10 @@ import Button from '../../../../Components/Button/Button';
 import HotJoinPopup from '../../../../Components/HotJoinPopup/HotJoinPopup';
 import { PlayerStatus, SeatStatus } from '../../enums';
 import { Messages, PlayerData, RoomData } from '../../types';
-import { Chat, Spectators } from './index';
 import styles from './Room.module.scss';
 import { SoundManager } from '../../../../utils/SoundManager';
+import Chat from '../Chat/Chat';
+import Spectators from '../Spectators/Spectators';
 
 type RoomProps = {
   socket: Socket;
@@ -94,9 +95,9 @@ export default function Room({ socket, roomData, playerData, setPlayerData }: Ro
               </Button>
             </div>
           ) : (
-            <div className={styles.loader}>
+            <div className={styles.loaderWrap}>
               <div>Waiting player...</div>
-              <div className={styles.cubeLoader} />
+              <span className={styles.loader} />
             </div>
           )}
           {roomData.seatTwo.status !== SeatStatus.EMPTY ? (
@@ -129,9 +130,9 @@ export default function Room({ socket, roomData, playerData, setPlayerData }: Ro
               </Button>
             </div>
           ) : (
-            <div className={styles.loader}>
+            <div className={styles.loaderWrap}>
               <div>Waiting player...</div>
-              <div className={styles.cubeLoader} />
+              <div className={styles.loader} />
             </div>
           )}
         </div>

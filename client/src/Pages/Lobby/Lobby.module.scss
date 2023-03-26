@@ -11,28 +11,27 @@ $purple_2 : #C93038;
 $purple_3 : #852D66;
 $purple_4 : #46275C;
 
+.no-room {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, 0);
+    font-size: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    >svg {
+        opacity: .6;
+    }
+}
+
 .lobbyWrapper {
     display: flex;
     position: relative;
     z-index: 1;
     height: 100%;
     flex-direction: column;
-
-    &::before {
-        // position: absolute;
-        // top: 0;
-        // right: 0;
-        // left: 0;
-        // height: 100%;
-        // width: 100%;
-        // background: url('../../assets/bg.png') no-repeat center center /cover;
-        // content: '';
-        // filter: brightness(60%);
-        // // filter: brightness(60%)  saturate(50%);
-        // // filter: saturate(50%);
-        // // filter: contrast(150%);
-        // z-index: -1;
-    }
 
     .lobby {
         display: flex;

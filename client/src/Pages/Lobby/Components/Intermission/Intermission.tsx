@@ -1,3 +1,4 @@
+import { PowerGlitch } from 'powerglitch';
 import React, { useEffect, useState } from 'react';
 import { SoundManager } from '../../../../utils/SoundManager';
 import styles from './Intermission.module.scss';
@@ -28,13 +29,30 @@ export default function Intermission({ username1, username2 }: Props) {
     SoundManager.getInstance().playSound('start');
   }, []);
 
+  const element = document.querySelector('.glitch');
+
+  useEffect(() => {
+    element &&
+      PowerGlitch.glitch('.glitch', {
+        glitchTimeSpan: {
+          start: 0.5,
+          end: 0.85,
+        },
+        shake: {
+          velocity: 25,
+          amplitudeX: 0.20,
+          amplitudeY: 0.10,
+        },
+      });
+  }, [element]);
+
   return (
     <div className={styles.intermission}>
       <span>{timer}</span>
-      <div className={styles.name}>
-        <span>{username1}</span>
+      <div className={styles.name + ' ' + 'glitch'}>
+        <div>{username1}</div>
         <span>VS</span>
-        <span>{username2}</span>
+        <div>{username2}</div>
       </div>
     </div>
   );

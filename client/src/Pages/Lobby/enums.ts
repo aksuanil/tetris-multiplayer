@@ -17,7 +17,6 @@ export enum PlayerStatus {
     SPECTATOR = 5,
 }
 
-
 export enum RoomStatus {
     WAITING = 0,
     READY = 1,
@@ -26,12 +25,12 @@ export enum RoomStatus {
     FINISHED = 4,
 }
 
-export enum Blocks {
-    blockO = 1,
-    blockL = 2,
-    blockT = 3,
-    blockZ = 4,
-    blockS = 5,
-    blockJ = 6,
-    blockI = 7
-}
+// export enum Blocks {
+//     blockO = 1,
+//     blockL = 2,
+//     blockT = 3,
+//     blockZ = 4,
+//     blockS = 5,
+//     blockJ = 6,
+//     blockI = 7
+// }

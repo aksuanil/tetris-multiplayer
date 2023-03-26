@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import Container from '../../../../../Components/Container/Container';
-import { SoundManager } from '../../../../../utils/SoundManager';
-import { RoomData } from '../../../types';
+import Container from '../../../../Components/Container/Container';
+import { SoundManager } from '../../../../utils/SoundManager';
+import { RoomData } from '../../types';
+
 import styles from './Spectators.module.scss';
 
 type Props = {

@@ -71,7 +71,7 @@ export const setScore = (roomData: RoomData, seatId: number, info: { score: numb
             default:
                 break;
         }
-        if (info.score > 7000) {
+        if (info.score > 5000) {
             setGameOver(roomData, seatId)
         }
     } catch (error) {
@@ -106,8 +106,16 @@ export const leaveOrDisconnect = (data: Storage, roomId: string, isPopulated: bo
             console.log(`Room ${id} deleted`)
             return;
         }
-        if (seatOne.id === currentId) { seatOne.id = ''; seatOne.username = ''; seatOne.status = 0; }
-        if (seatTwo.id === currentId) { seatTwo.id = ''; seatTwo.username = ''; seatTwo.status = 0; }
+        if (seatOne.id === currentId) {
+            data[roomId].seatOne.id = '';
+            data[roomId].seatOne.username = '';
+            data[roomId].seatOne.status = 0;
+        }
+        if (seatTwo.id === currentId) {
+            data[roomId].seatTwo.id = '';
+            data[roomId].seatTwo.username = '';
+            data[roomId].seatTwo.status = 0;
+        }
         data[roomId].spectators = spectators.filter((item) => item !== currentId)
     } catch (error) {
         console.log(error)

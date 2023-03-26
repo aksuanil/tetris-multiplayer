@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import Button from '../../../../../Components/Button/Button';
-import Container from '../../../../../Components/Container/Container';
-import Input from '../../../../../Components/Input/Input';
-import { Messages } from '../../../types';
+import { Button } from '../../../../Components/Button';
+import Container from '../../../../Components/Container/Container';
+import { Input } from '../../../../Components/Input';
+import { Messages } from '../../types';
 import styles from './Chat.module.scss';
 type Props = {
   messages: Messages;
@@ -25,7 +25,7 @@ export default function Chat({ messages, emitMessage }: Props) {
   }, [messages]);
   return (
     <div className={styles.chat}>
-      <Container color='#ce4242' ref={chatRef} className={styles.chatBox}>
+      <Container color="#ce4242" ref={chatRef} className={styles.chatBox}>
         <legend>Chat</legend>
         {messages.map((item, index) => (
           <div className={styles.chatBoxMessage} key={index}>

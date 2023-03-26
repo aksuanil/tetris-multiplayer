@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as io from 'socket.io-client';
 import { RoomData, PlayerData } from './types';
-import { PlayerStatus, RoomStatus, SeatStatus } from './enums';
+import { PlayerStatus, RoomStatus } from './enums';
 import { useLocation } from 'react-router-dom';
-import { PowerGlitch } from 'powerglitch';
-import { Room } from './Components/Room';
-import { Intermission } from './Components/Intermission';
-import { Game } from './Components/Game';
 import styles from './Lobby.module.scss';
+import { LogoIcon } from '../../assets/icons/Icons';
+import Game from './Components/Game/Game';
+import Intermission from './Components/Intermission/Intermission';
+import Room from './Components/Room/Room';
 
 type Props = {
   socket: io.Socket;
@@ -16,8 +16,6 @@ type Props = {
 
 export default function Lobby({ socket }: Props): JSX.Element {
   const { roomId } = useParams();
-  // return 404 page
-  if (!roomId) return <div></div>;
 
   const location = useLocation();
   const [playerData, setPlayerData] = useState<PlayerData>({
@@ -61,38 +59,18 @@ export default function Lobby({ socket }: Props): JSX.Element {
     socket.emit('getRoomData', roomId, setRoomData);
     socket.on('getRoomData', (data) => setRoomData(data));
     return () => {
-      socket.emit('leaveRoom', roomId);
+      socket.emit('socket:leaveRoom', roomId);
     };
   }, []);
 
-  useEffect(() => {
-    document.querySelectorAll('.glitch').length > 0 &&
-      PowerGlitch.glitch(document.querySelectorAll('.glitch'), {
-        playMode: 'always',
-        createContainers: false,
-        hideOverflow: false,
-        timing: {
-          duration: 10000,
-        },
-        glitchTimeSpan: {
-          start: 0,
-          end: 0.05,
-        },
-        shake: {
-          velocity: 25,
-          amplitudeX: 0.1,
-          amplitudeY: 0.1,
-        },
-        slice: {
-          count: 6,
-          velocity: 25,
-          minHeight: 0.02,
-          maxHeight: 0.15,
-          hueRotate: true,
-        },
-        pulse: false,
-      });
-  }, [document.querySelectorAll('.glitch').length]);
+  if (roomData === null)
+    return (
+      <div className={styles.noRoom}>
+        <span>ROOM NOT FOUND</span>
+        <LogoIcon width={64} />
+      </div>
+    );
+
   return (
     <React.Fragment>
       <div className={styles.lobbyWrapper}>

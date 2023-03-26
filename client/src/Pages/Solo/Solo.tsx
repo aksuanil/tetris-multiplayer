@@ -16,7 +16,6 @@ type Props = {
 let board: SoloTetris | undefined;
 
 export default function Solo({ socket }: Props): JSX.Element {
-  // const [gameBoard, setBoard] = useState<SoloGameBoard>();
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const location = useLocation();
@@ -47,9 +46,11 @@ export default function Solo({ socket }: Props): JSX.Element {
   useEffect(() => {
     if (username) {
       initCanvas();
+      window.addEventListener('keydown', handleKeydown);
     }
     return () => {
       board?.terminate();
+      window.removeEventListener('keydown', handleKeydown);
     };
   }, [username]);
 
@@ -90,7 +91,7 @@ export default function Solo({ socket }: Props): JSX.Element {
           <BlockQueue position="center" blockQueue={board.blockQueue} />
         </React.Fragment>
       )}
-      <canvas hidden={!username} className={styles.canvas} tabIndex={0} onKeyDown={(e) => handleKeydown(e)} id="canvas" ref={canvasRef} />
+      <canvas hidden={!username} className={styles.canvas} tabIndex={0} id="canvas" ref={canvasRef} />
     </div>
   );
 }

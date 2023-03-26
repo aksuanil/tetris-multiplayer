@@ -113,6 +113,7 @@ export class SoloTetris {
                 this.render.renderBoard(this.matrix)
             }, gameSettings.dropTick);
             this.createPiece();
+            SoundManager.getInstance().playSound('drop')
             this.clearLines();
             return 'DROPPED'
         }
@@ -122,7 +123,7 @@ export class SoloTetris {
         while (result !== "DROPPED") {
             result = this.moveCurrentBlock('DOWN', true);
         }
-        SoundManager.getInstance().playSound('error')
+        // SoundManager.getInstance().playSound('drop')
 
     }
     public rotateCurrentBlock(): Block {
@@ -179,12 +180,14 @@ export class SoloTetris {
         })
         if (count > 0) {
             this.score += count === 1 ? 100 : count < 4 ? count * 200 : count * 400;
+            setTimeout(() => {
+                this.render.renderBoard(this.matrix)
+            }, 500)
             if (count == 4) {
                 SoundManager.getInstance().playSound('tetrisClear');
                 return;
             }
             SoundManager.getInstance().playSound('lineClear');
-            this.render.renderBoard(this.matrix)
         }
     }
     public checkGameOver = () => {
@@ -196,6 +199,6 @@ export class SoloTetris {
     }
     public terminate(): void {
         this.isGameOver = true;
-        clearInterval(this.tickDown)
+        this.tickDown && clearInterval(this.tickDown)
     }
 }

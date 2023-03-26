@@ -21,7 +21,7 @@ export default function LeaveDialog() {
           <p>Are you sure?</p>
           <Button
             onClick={() => {
-              navigate(-1);
+              navigate('/');
               setLeavePopup(false);
             }}
             type="button"

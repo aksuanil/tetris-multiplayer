@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Logo.module.scss';
 import { LogoIcon } from '../../assets/icons/Icons';
+import { PowerGlitch } from 'powerglitch';
 
 export default function Logo(): JSX.Element {
   const logoRef = useRef<HTMLDivElement>(null);
@@ -16,6 +17,24 @@ export default function Logo(): JSX.Element {
       index = (index + 1) % colors.length;
     }, 3000);
   };
+
+  useEffect(() => {
+    logoRef.current &&
+      PowerGlitch.glitch(logoRef.current, {
+        timing: {
+          duration: 10000,
+        },
+        glitchTimeSpan: {
+          start: 0.5,
+          end: 0.6,
+        },
+        shake: {
+          velocity: 20,
+          amplitudeX: 0.2,
+          amplitudeY: 0.1,
+        },
+      });
+  }, [logoRef]);
 
   useEffect(() => {
     logoAnimation();

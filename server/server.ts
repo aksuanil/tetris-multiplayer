@@ -103,7 +103,7 @@ const onConnection = (socket: Socket) => {
 
     socket.on("message:to-server", (roomId, username, message) => io.to(roomId).emit('messageToClient', username, message));
 
-    socket.on("socket:leaveRoom", ({ roomId }) => leaveRoom(socket, io, storage, roomId));
+    socket.on("socket:leaveRoom", (roomId) => leaveRoom(socket, io, storage, roomId));
 
     socket.on("disconnect", () => disconnect(socket, io, storage));
 

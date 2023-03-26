@@ -26,16 +26,8 @@ app.use(require('express-status-monitor')({
 app.get('/', (req, res) => {
     res.send('Welcome to Tetrify.');
 });
-io.on("connection", (socket) => {
-    socket.use((packet, next) => {
-        console.log(packet);
-    });
-});
 const onConnection = (socket) => {
     console.log(`${socket.id} connected!`);
-    socket.use((packet, next) => {
-        console.log(packet);
-    });
     socket.on('joinRoom', (roomId, username = 'Guest', callback) => {
         var _a;
         socket.join(roomId);
@@ -98,7 +90,7 @@ const onConnection = (socket) => {
         return cb(storage_1.highscores.sort(({ score: a }, { score: b }) => b - a));
     });
     socket.on("message:to-server", (roomId, username, message) => io.to(roomId).emit('messageToClient', username, message));
-    socket.on("socket:leaveRoom", ({ roomId }) => (0, utils_1.leaveRoom)(socket, io, storage_1.storage, roomId));
+    socket.on("socket:leaveRoom", (roomId) => (0, utils_1.leaveRoom)(socket, io, storage_1.storage, roomId));
     socket.on("disconnect", () => (0, utils_1.disconnect)(socket, io, storage_1.storage));
     socket.on('room-data', (type, data) => {
         switch (type) {

@@ -74,7 +74,7 @@ const setScore = (roomData, seatId, info) => {
             default:
                 break;
         }
-        if (info.score > 7000) {
+        if (info.score > 5000) {
             (0, exports.setGameOver)(roomData, seatId);
         }
     }
@@ -112,14 +112,14 @@ const leaveOrDisconnect = (data, roomId, isPopulated, currentId) => {
             return;
         }
         if (seatOne.id === currentId) {
-            seatOne.id = '';
-            seatOne.username = '';
-            seatOne.status = 0;
+            data[roomId].seatOne.id = '';
+            data[roomId].seatOne.username = '';
+            data[roomId].seatOne.status = 0;
         }
         if (seatTwo.id === currentId) {
-            seatTwo.id = '';
-            seatTwo.username = '';
-            seatTwo.status = 0;
+            data[roomId].seatTwo.id = '';
+            data[roomId].seatTwo.username = '';
+            data[roomId].seatTwo.status = 0;
         }
         data[roomId].spectators = spectators.filter((item) => item !== currentId);
     }

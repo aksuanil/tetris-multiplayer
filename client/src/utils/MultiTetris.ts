@@ -2,7 +2,6 @@ import { clearInterval, setInterval } from 'worker-timers';
 import { Socket } from 'socket.io-client';
 import { PlayerData } from '../Pages/Lobby/types';
 import { colors, gameSettings } from '../gameSettings';
-import { SeatStatus } from '../Pages/Lobby/enums';
 import { GameRenderer } from './GameRenderer';
 import { SoundManager } from './SoundManager';
 import { Block } from '../types';
@@ -42,11 +41,11 @@ export class MultiTetris {
     score = 0;
     lines = 0;
     isGameOver = false;
+    isTerminated = false;
     socket: Socket;
     roomId: string;
     playerData: PlayerData;
 
-    // Methods for updating game state and sending data to server
     private setBoardMatrix = () => {
         this.socket.emit('room-data', 'board-matrix', { roomId: this.roomId, seatId: this.playerData.seatId, boardMatrix: this.matrix });
     }
@@ -59,9 +58,6 @@ export class MultiTetris {
     private loseGame = () => {
         this.socket.emit('room-data', 'game-over', { roomId: this.roomId, seatId: this.playerData.seatId === 0 ? 1 : 0 });
     }
-    // private lostPlayer = () => {
-    //     this.socket.emit('room-data', 'seat-status', { roomId: this.roomId, seatId: this.playerData.seatId, seatStatus: SeatStatus.LOST });
-    // }
     private setBlockQueue = () => {
         this.socket.emit('room-data', 'block-queue', { roomId: this.roomId, seatId: this.playerData.seatId, blockQueue: this.blockQueue });
     }
@@ -136,7 +132,6 @@ export class MultiTetris {
 
             if (this.checkGameOver()) {
                 this.loseGame();
-                // this.lostPlayer();
                 this.isGameOver = true;
                 return 'DROPPED'
             }
@@ -151,7 +146,7 @@ export class MultiTetris {
         while (result !== "DROPPED") {
             result = this.moveCurrentBlock('DOWN', true);
         }
-        SoundManager.getInstance().playSound('error')
+        SoundManager.getInstance().playSound('drop')
     }
     public rotateCurrentBlock(): Block {
         let collision = false;
@@ -207,17 +202,17 @@ export class MultiTetris {
         if (count > 0) {
             this.score += count === 1 ? 100 : count < 4 ? count * 200 : count * 400;
             this.setScore();
-            if (this.score >= 7000) {
+            if (this.score >= 5000) {
                 this.wonGame();
             }
-
+            setTimeout(() => {
+                this.render.renderBoard(this.matrix)
+            }, 500)
             if (count == 4) {
                 SoundManager.getInstance().playSound('tetrisClear');
-                // this.setScore();
                 return;
             }
             SoundManager.getInstance().playSound('lineClear');
-            this.render.renderBoard(this.matrix)
         }
     }
     public checkGameOver = () => {
@@ -227,7 +222,9 @@ export class MultiTetris {
         return false;
     }
     public terminate(): void {
+        if (this.isTerminated) return;
         this.isGameOver = true;
+        this.isTerminated = true;
         clearInterval(this.tickDown)
     }
 }

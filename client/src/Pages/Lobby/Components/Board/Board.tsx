@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import React, { useEffect, useRef, useState } from 'react';
-import { gameSettings } from '../../../../../gameSettings';
+import React, { useEffect, useRef } from 'react';
 import { Socket } from 'socket.io-client';
-import { PlayerData, RoomData } from '../../../types';
+import BlockQueue from '../../../../Components/BlockQueue/BlockQueue';
+import GameOverPopup from '../../../../Components/GameOverPopup/GameOverPopup';
+import Scoreboard from '../../../../Components/Scoreboard/Scoreboard';
+import { gameSettings } from '../../../../gameSettings';
+import { MultiTetris } from '../../../../utils/MultiTetris';
+import { SoundManager } from '../../../../utils/SoundManager';
+import { SeatStatus } from '../../enums';
+import { PlayerData, RoomData } from '../../types';
 import styles from './Board.module.scss';
-import BlockQueue from '../../../../../Components/BlockQueue/BlockQueue';
-import Scoreboard from '../../../../../Components/Scoreboard/Scoreboard';
-import { MultiTetris } from '../../../../../utils/MultiTetris';
-import GameOverPopup from '../../../../../Components/GameOverPopup/GameOverPopup';
-import { SeatStatus } from '../../../enums';
-import { SoundManager } from '../../../../../utils/SoundManager';
 
 type Props = {
   socket: Socket;
@@ -42,9 +42,14 @@ export default function Board({ socket, roomData, playerData }: Props) {
       }
       board?.terminate();
     });
+
     initCanvas();
+
+    window.addEventListener('keydown', handleKeydown);
+
     return () => {
       board?.terminate();
+      window.removeEventListener('keydown', handleKeydown);
     };
   }, []);
 
@@ -87,7 +92,7 @@ export default function Board({ socket, roomData, playerData }: Props) {
         position={playerData.seatId === 0 ? 'left' : 'right'}
         blockQueue={roomData[playerData.seatId === 0 ? 'seatOne' : 'seatTwo'].blockQueue}
       />
-      <canvas className={styles.canvas} tabIndex={0} onKeyDown={(e) => handleKeydown(e)} id="canvas" ref={canvasRef} />
+      <canvas className={styles.canvas} tabIndex={0} id="canvas" ref={canvasRef} />
       <Scoreboard
         position={playerData.seatId === 0 ? 'left' : 'right'}
         score={roomData[playerData.seatId === 0 ? 'seatOne' : 'seatTwo'].score}

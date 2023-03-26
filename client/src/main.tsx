@@ -7,11 +7,12 @@ import Solo from './Pages/Solo/Solo';
 import { Layout } from './Layout/Layout';
 import * as io from 'socket.io-client';
 import { ContextProvider } from './store/Provider';
+import { ErrorBoundary } from './Components/ErrorBoundry/ErrorBoundry';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<App />);
 
-// const socket = io.connect('http://localhost:8080');
-const socket = io.connect('https://tetricore.onrender.com');
+const socket = io.connect('http://localhost:8080');
+// const socket = io.connect('https://tetricore.onrender.com');
 
 function Main(): JSX.Element {
   return (
@@ -25,12 +26,14 @@ function Main(): JSX.Element {
 
 function App(): JSX.Element {
   return (
-    <ContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<Layout Component={Main}></Layout>} />;
-        </Routes>
-      </BrowserRouter>
-    </ContextProvider>
+    <ErrorBoundary>
+      <ContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<Layout Component={Main}></Layout>} />;
+          </Routes>
+        </BrowserRouter>
+      </ContextProvider>
+    </ErrorBoundary>
   );
 }
