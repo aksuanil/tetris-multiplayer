@@ -15,7 +15,7 @@ export const gameSettings = {
         x: () => gameSettings.canvasSize.width / gameSettings.boardSize.x,
         y: () => gameSettings.canvasSize.height / gameSettings.boardSize.y,
     },
-    dropTick: 600,
+    dropTick: 300,
     shadowX: 0,
     shadowY: -2,
     totalBoardSize: {
